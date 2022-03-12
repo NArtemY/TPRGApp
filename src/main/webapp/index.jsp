@@ -29,7 +29,7 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.jsp">Главная</a></li>
-                    <li><a href="minerals.jsp">Минералы</a></li>
+                    <li><a href="minerals.jsp">Книги</a></li>
                     <li><a href="samples.jsp">Образцы</a></li>
                     <li><a href="expeditions.jsp">Экспедиции</a></li>
 					<li><a href="report.jsp">Обращение</a></li>

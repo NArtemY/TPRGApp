@@ -1,6 +1,6 @@
-<%@ page import="com.example.storehouse.*" %>
+<%@ page import="com.example.librarytprg.*" %>
 <%@ page import="javax.xml.crypto.Data" %>
-<%@ page import="com.example.storehouse.Database" %>
+<%@ page import="com.example.librarytprg.Database" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     if (!Database.isEnable)Database.Init(10, 10, 10,10);

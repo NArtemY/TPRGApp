@@ -1,4 +1,4 @@
-<%@ page import="com.example.librarytprg.*" %>
+<%@ page import="com.example.storehouse.*" %>
 <%@ page import="javax.xml.crypto.Data" %>
 <%@ page import="com.example.storehouse.Database" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -21,7 +21,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Главная</title>
-        <link rel='stylesheet' type='text/css' href='style/style.css' />
+
         <style>
 
         </style>

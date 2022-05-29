@@ -28,7 +28,7 @@
     </head>
     <body>
         <header>
-            <img class="logo" src="images/temp.png" alt="logo pic">
+            <img class="logo" src="images/books.png" alt="logo pic">
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.jsp">Главная</a></li>

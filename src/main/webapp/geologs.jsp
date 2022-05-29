@@ -38,7 +38,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Геологи</title>
-    <link rel='stylesheet' type='text/css' href='style/style.css' />
+    <link rel='stylesheet' type='text/css' href='style/styl.css' />
     <script>
         function tableSearch() {
             var phrase = document.getElementById('search-text');

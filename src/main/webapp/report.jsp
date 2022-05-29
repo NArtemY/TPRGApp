@@ -27,7 +27,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Обращение</title>
-    <link rel='stylesheet' type='text/css' href='style/style.css' />
+    <link rel='stylesheet' type='text/css' href='style/styl.css' />
 </head>
 <body>
 <%if (!isLoggedIn){

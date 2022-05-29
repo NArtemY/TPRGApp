@@ -43,7 +43,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
-    <link rel='stylesheet' type='text/css' href='style/styl.css' />
+    <link rel='stylesheet' type='text/css' href='style/style.css' />
 </head>
 <body>
 <header>

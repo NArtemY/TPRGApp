@@ -46,7 +46,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Образцы</title>
-    <link rel='stylesheet' type='text/css' href='style/styl.css' />
+    <link rel='stylesheet' type='text/css' href='style/style.css' />
     <script>
         function tableSearch() {
             var phrase = document.getElementById('search-text');

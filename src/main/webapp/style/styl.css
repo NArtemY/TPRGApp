@@ -107,24 +107,14 @@ button:hover {
     padding: 5px 10px;
     background: #545454;
 }
-.product-table thead tr th:first-child {
-    border-radius: 8px 0 0 8px;
-}
-.product-table thead tr th:last-child {
-    border-radius: 0 8px 8px 0;
-}
+
 .product-table tbody td {
     padding: 5px 10px;
 }
 .table tbody tr:nth-child(even){
     background-color: #3b3c45;
 }
-.product-table tbody td:first-child {
-    border-radius: 8px 0 0 8px;
-}
-.product-table tbody td:last-child {
-    border-radius: 0 8px 8px 0;
-}
+
 .flex-box {
     display: flex;
 }

@@ -30,8 +30,7 @@
             String bookInfo = request.getParameter("bookInfo");
             String bookNumberCopies = request.getParameter("bookNumberCopies");
             String bookAvailableCopies = request.getParameter("bookAvailableCopies");
-            String bookHistory = request.getParameter("bookHistory");
-            Admin.addBook(name, bookAuthor, bookPublisher, bookInfo, bookNumberCopies, bookAvailableCopies, bookHistory);
+            Admin.addBook(name, bookAuthor, bookPublisher, bookInfo, bookNumberCopies, bookAvailableCopies);
         }
         if (request.getParameter("delete-button") != null) {
             for (int i = Database.bookList.size() - 1; i >= 0; i--) {
@@ -120,7 +119,6 @@
                             <th>Другая информация</th>
                             <th>Количество копий</th>
                             <th>Сколько доступно</th>
-                            <th>История выдачи</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -135,7 +133,6 @@
                             <td><%=book.get_Other_information()%></td>
                             <td><%=book.get_Number_of_copies()%></td>
                             <td><%=book.get_Number_of_available_books()%></td>
-                            <td><%=book.get_History()%></td>
                         </tr>
                         <%  }%>
                         </tbody>
@@ -152,7 +149,6 @@
                     Другая информация: <input  class="input-background" name="bookInfo"><br/>
                     Количество копий: <input  class="input-background" name="bookNumberCopies"><br/>
                     Сколько доступно: <input  class="input-background" name="bookAvailableCopies"><br/>
-                    История выдачи: <input  class="input-background" name="bookHistory"><br/>
                     <input class="input-background" type="submit" name="add-button" value="Добавить">
                 </form>
             </div>

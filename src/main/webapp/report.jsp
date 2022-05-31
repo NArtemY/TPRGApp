@@ -67,8 +67,8 @@
             <div class="table-form">
                 <h3>Заявка</h3>
                 <form action="" method="post">
-                    Тема заявки: <input  class="input-background" name="originSample"><br/><br></br>
-					Описание: <br></br><input  class="input-background" name="originSample" style="width:1200px;height:500px;"><br/><br></br>
+                    Тема обращения: <input  class="input-background" name="originSample"><br/><br></br>
+					Обращение: <br></br><input  class="input-background" name="originSample" style="width:1200px;height:500px;"><br/><br></br>
 					Контактный email: <input  class="input-background" name="originSample"><br/>
                     <input class="input-background" type="submit" name="delete-button" value="Отправить">
                 </form>

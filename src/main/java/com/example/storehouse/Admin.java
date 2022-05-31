@@ -13,8 +13,8 @@ public class Admin {
         Database.mineralList.remove(Database.getMineralByID(id));
     }
 
-    public static void addBook(String name, String bookAuthor, String bookPublisher, String bookInfo, String bookNumberCopies, String bookAvailableCopies, String bookHistory){
-        Book book = new Book(name, bookAuthor, bookPublisher, bookInfo, Integer.parseInt(bookNumberCopies), Integer.parseInt(bookAvailableCopies), bookHistory);
+    public static void addBook(String name, String bookAuthor, String bookPublisher, String bookInfo, String bookNumberCopies, String bookAvailableCopies){
+        Book book = new Book(name, bookAuthor, bookPublisher, bookInfo, Integer.parseInt(bookNumberCopies), Integer.parseInt(bookAvailableCopies));
         Database.bookList.add(book);
     }
     public static void removeBook(int id){

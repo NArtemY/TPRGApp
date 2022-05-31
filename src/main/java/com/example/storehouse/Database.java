@@ -9,6 +9,7 @@ public class Database {
     public static ArrayList<Geologist> geologList = new ArrayList<>();
 	public static ArrayList<Account> accountList = new ArrayList<>();
     public static ArrayList<Book> bookList = new ArrayList<>();
+    public static ArrayList<Reader> readerList = new ArrayList<>();
     public static boolean isEnable = false;
 	public static boolean stat=false;
 
@@ -24,6 +25,9 @@ public class Database {
         }
         for(int i = 0; i < sampleNum; i++){
             Database.sampleList.add(new Sample());
+        }
+        for(int i = 0; i < geologNum; i++){
+            Database.readerList.add(new Reader());
         }
 		for(int i = 0; i < geologNum; i++){
             Database.geologList.add(new Geologist());
@@ -94,7 +98,17 @@ public class Database {
         }
         return null;
     }
-	
+
+    public static Reader getReaderByID(int id){
+        for (Reader reader : readerList) {
+            int readerId = reader.getId();
+            if (id == readerId) {
+                return reader;
+            }
+        }
+        return null;
+    }
+
 	public static Geologist getGeologByID(int id){
         for (Geologist geolog : geologList) {
             int geologId = geolog.getId();

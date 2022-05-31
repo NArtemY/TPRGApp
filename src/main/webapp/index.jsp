@@ -34,7 +34,6 @@
                     <li><a href="index.jsp">Главная</a></li>
                     <li><a href="books.jsp">Книги</a></li>
                     <li><a href="samples.jsp">Читатели</a></li>
-                    <li><a href="expeditions.jsp">Авторы</a></li>
 					<li><a href="report.jsp">Обращение</a></li>
                     <%if (cookie != null && cookie.getValue().equals("admin")){
 					%>

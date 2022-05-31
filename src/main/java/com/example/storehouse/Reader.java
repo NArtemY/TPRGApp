@@ -38,6 +38,10 @@ public class Reader {
 		History_of_books = randomSymbols();
 	}
 
+	public String getId() {
+		return History_of_books;
+	}
+
 	public String get_History() {
 		return History_of_books;
 	}

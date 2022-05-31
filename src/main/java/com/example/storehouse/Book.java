@@ -12,7 +12,7 @@ public class Book {
 	private String Other_information;
 	private int Number_of_copies;
 	private int Number_of_available_books;
-	private String History_of_delivery;
+	private ArrayList<History> historyList = new ArrayList<>();
 
 	public int getId() {
 		return id_Book;
@@ -43,7 +43,10 @@ public class Book {
 	}
 
 	public String get_History() {
-		return History_of_delivery;
+		string buffer = "";
+		for (History history : historyList) {
+			buffer += history.getHistory();
+		}
 	}
 
 	private String randomSymbols()
@@ -57,7 +60,7 @@ public class Book {
 				.toString();
 	}
 
-	public Book(String Name, String Author, String Publisher, String Other_information, int Number_of_copies, int Number_of_available_books, String History_of_delivery){
+	public Book(String Name, String Author, String Publisher, String Other_information, int Number_of_copies, int Number_of_available_books){
 		this.id_Book = ++count;
 		this.Name = Name;
 		this.Author = Author;
@@ -65,7 +68,9 @@ public class Book {
 		this.Other_information = Other_information;
 		this.Number_of_copies = Number_of_copies;
 		this.Number_of_available_books = Number_of_available_books;
-		this.History_of_delivery = History_of_delivery;
+		for(int i=0; i<Number_of_copies; i++){
+			this.historyList.add(new History());
+		}
 	}
 
 	public Book(){
@@ -75,8 +80,21 @@ public class Book {
 		Publisher = randomSymbols();
 		Other_information = randomSymbols();
 		Number_of_copies = id_Book / 2 + 1;
-		Number_of_available_books = id_Book % 4;
-		History_of_delivery = randomSymbols();
+		Number_of_available_books = Number_of_copies % 4;
+	}
+
+	public void setStartDate(String start, String reader){
+		if(Number_of_available_books > 0 ) {
+			this.historyList.get(this.Number_of_available_books - 1).setStartDate(start, reader);
+			this.Number_of_available_books = this.Number_of_available_books - 1;
+		}
+	}
+
+	public void setEndDate(String end, String reader){
+		if(Number_of_available_books < Number_of_copies ) {
+			this.historyList.get(this.Number_of_available_books - 1).setEndDate(end, reader);
+			this.Number_of_available_books = this.Number_of_available_books + 1;
+		}
 	}
 
 	public void set_Other_information(String info) {
@@ -89,10 +107,6 @@ public class Book {
 
 	public void set_Number_of_available_books(int num) {
 		this.Number_of_available_books = num;
-	}
-
-	public void set_History(String history) {
-		this.History_of_delivery = this.History_of_delivery + history;
 	}
 
 }

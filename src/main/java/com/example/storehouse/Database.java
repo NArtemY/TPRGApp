@@ -17,7 +17,7 @@ public class Database {
 //        clientList = new ArrayList<>();
 //        orderList = new ArrayList<>();
         for(int i = 0; i < mineralNum; i++){
-            Database.booksList.add(new Book());
+            Database.bookList.add(new Book());
         }
         for(int i = 0; i < mineralNum; i++){
             Database.mineralList.add(new Mineral());

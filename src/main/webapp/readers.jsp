@@ -23,11 +23,17 @@
     }
     if (cookie != null && cookie.getValue().equals("admin")) {
         isLoggedIn = true;
+        if (request.getParameter("add-button") != null) {
+            String name = request.getParameter("readerName");
+            String readerEmail = request.getParameter("readerEmail");
+            String readerHistory = request.getParameter("readerHistory");
+            Admin.addReader(name, readerEmail, readerHistory);
+        }
         if (request.getParameter("delete-button") != null) {
-            for (int i = Database.geologList.size() - 1; i >= 0; i--) {
-                if (request.getParameter("checkbox" + Database.geologList.get(i).getId()) != null) {
-                    System.out.println(request.getParameter("checkbox" + Database.geologList.get(i).getId()));
-                    Admin.removeGeolog(Database.geologList.get(i).getId());
+            for (int i = Database.readerList.size() - 1; i >= 0; i--) {
+                if (request.getParameter("checkbox" + Database.readerList.get(i).getId()) != null) {
+                    System.out.println(request.getParameter("checkbox" + Database.readerList.get(i).getId()));
+                    Admin.removeReader(Database.readerList.get(i).getId());
                 }
             }
         }
@@ -37,7 +43,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Геологи</title>
+    <title>Читатели</title>
     <link rel='stylesheet' type='text/css' href='style/styl.css' />
     <script>
         function tableSearch() {
@@ -92,12 +98,12 @@
 <main>
     <div class="main-area" style="padding-left: 10%">
         <div style="margin-bottom: 30px ">
-            <h3>Поиск</h3>
+            <h3 >Поиск</h3>
             <input class="input-background" type="text" placeholder="Поиск" id="search-text" onkeyup="tableSearch()">
         </div>
         <div class="flex-box">
             <div class="table-form">
-                <h3>Геологи</h3>
+                <h3>Книги</h3>
                 <form action="" method="post">
                     <table id="table-id" class="product-table">
                         <thead>
@@ -105,28 +111,33 @@
                             <th></th>
                             <th>ID</th>
                             <th>ФИО</th>
-                            <th>Адрес</th>
-                            <th>Телефон</th>
                             <th>Email</th>
+                            <th>История</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%
-                            int i=0;
-                            for(Geologist geolog: Database.geologList) {%>
+                            for(Reader reader: Database.readerList) {%>
                         <tr>
-                            <td><input type="checkbox" name=<%="checkbox"+geolog.getId()%> value="<%=geolog.getId()%>"></td>
-                            <td><%=geolog.getId()%></td>
-                            <td><%=geolog.getName()%></td>
-                            <td><%=geolog.getAddress()%></td>
-                            <td><%=geolog.getPhone()%></td>
-                            <td><%=geolog.getEmail()%></td>
+                            <td><input type="checkbox" name=<%="checkbox"+reader.getId()%> value="<%=reader.getId()%>"></td>
+                            <td><%=reader.getId()%></td>
+                            <td><%=reader.get_Name()%></td>
+                            <td><%=reader.get_Contact_information()%></td>
+                            <td><%=reader.get_History()%></td>
                         </tr>
-                        <% i++;
-                        }%>
+                        <%  }%>
                         </tbody>
                     </table>
                     <input class="input-background" type="submit" name="delete-button" value="Удалить">
+                </form>
+            </div>
+            <div class="add-area">
+                <form class="add-form" action="" method="post">
+                    Добавление читателя<br>
+                    ФИО: <input  class="input-background" name="readerName"><br/>
+                    Email: <input  class="input-background" name="readerEmail"><br/>
+                    История выдачи: <input  class="input-background" name="readerHistory"><br/>
+                    <input class="input-background" type="submit" name="add-button" value="Добавить">
                 </form>
             </div>
         </div>

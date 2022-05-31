@@ -6,7 +6,6 @@ import java.lang.String;
 public class Reader {
 
 	private static int count = 0;
-	private int idReader;
 	private String Name;
 	private int Number_of_library_card;
 	private String Contact_information;
@@ -25,7 +24,6 @@ public class Reader {
 
 	public Reader(String name, String contact_information, String history)
 	{
-		this.idReader = ++count;
 		this.Number_of_library_card = ++count;
 		this.Name = name;
 		this.Contact_information = contact_information;
@@ -34,15 +32,14 @@ public class Reader {
 
 	public Reader()
 	{
-		idReader = ++count;
 		Number_of_library_card = ++count;
 		Name = randomSymbols();
 		Contact_information = randomSymbols()+"@mail.ru";
-		History_of_books = randomSymbols();
+		History_of_books = "1984 2022-01-16";
 	}
 
 	public int getId() {
-		return idReader;
+		return Number_of_library_card;
 	}
 
 	public String get_History() {
@@ -65,8 +62,8 @@ public class Reader {
 		this.Contact_information = contact_information;
 	}
 
-	public void set_History_of_books(String newBook) {
-		this.History_of_books = this.History_of_books + newBook;
+	public void set_History_of_books(String newBook, String date) {
+		this.History_of_books = this.History_of_books + " " + newBook + " " + date;
 	}
 
 }

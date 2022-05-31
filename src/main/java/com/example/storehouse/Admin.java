@@ -20,6 +20,14 @@ public class Admin {
     public static void removeBook(int id){
         Database.bookList.remove(Database.getBookByID(id));
     }
+
+    public static void addReader(String name, String contact_information, String history){
+        Reader reader = new Reader(String name, String contact_information, String history);
+        Database.readerList.add(reader);
+    }
+    public static void removeReader(int id){
+        Database.readerList.remove(Database.getReaderByID(id));
+    }
 	
 	public static void addGeolog(String name,String address,String phone,String email){
         Geologist geolog = new Geologist(name, address, phone, email);

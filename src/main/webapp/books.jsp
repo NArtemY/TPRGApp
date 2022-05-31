@@ -125,7 +125,7 @@
                         </thead>
                         <tbody>
                         <%
-                            for(Book book: Database.booklList) {%>
+                            for(Book book: Database.bookList) {%>
                         <tr>
                             <td><input type="checkbox" name=<%="checkbox"+book.getId()%> value="<%=book.getId()%>"></td>
                             <td><%=book.getId()%></td>

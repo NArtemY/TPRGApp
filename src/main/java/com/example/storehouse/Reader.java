@@ -56,7 +56,7 @@ public class Reader {
 	}
 
 	public void set_Contact_information(string contact_information) {
-		this.Contact_information = contact_information
+		this.Contact_information = contact_information;
 	}
 
 	public void set_History_of_books(string newBook) {

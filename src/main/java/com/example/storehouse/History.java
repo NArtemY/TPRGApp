@@ -32,7 +32,7 @@ public class History{
 		this.history = this.history + date + name;
 	}
 
-	public Mineral getHistory(){
+	public String getHistory(){
 		return history;
 	}
 

@@ -6,6 +6,7 @@ import java.lang.String;
 public class Reader {
 
 	private static int count = 0;
+	private int idReader;
 	private String Name;
 	private int Number_of_library_card;
 	private String Contact_information;
@@ -24,6 +25,7 @@ public class Reader {
 
 	public Reader(String name, String contact_information, String history)
 	{
+		this.idReader = ++count;
 		this.Number_of_library_card = ++count;
 		this.Name = name;
 		this.Contact_information = contact_information;
@@ -32,14 +34,15 @@ public class Reader {
 
 	public Reader()
 	{
+		idReader = ++count;
 		Number_of_library_card = ++count;
 		Name = randomSymbols();
 		Contact_information = randomSymbols()+"@mail.ru";
 		History_of_books = randomSymbols();
 	}
 
-	public String getId() {
-		return History_of_books;
+	public int getId() {
+		return idReader;
 	}
 
 	public String get_History() {

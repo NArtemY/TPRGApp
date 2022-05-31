@@ -1,6 +1,7 @@
 package com.example.storehouse;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Book {
 
@@ -43,7 +44,7 @@ public class Book {
 	}
 
 	public String get_History() {
-		string buffer = "";
+		String buffer = "";
 		for (History history : historyList) {
 			buffer += history.getHistory();
 		}

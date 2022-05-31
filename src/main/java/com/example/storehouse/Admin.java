@@ -22,7 +22,7 @@ public class Admin {
     }
 
     public static void addReader(String name, String contact_information, String history){
-        Reader reader = new Reader(String name, String contact_information, String history);
+        Reader reader = new Reader(name, contact_information, history);
         Database.readerList.add(reader);
     }
     public static void removeReader(int id){

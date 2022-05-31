@@ -12,6 +12,14 @@ public class Admin {
     public static void removeMineral(int id){
         Database.mineralList.remove(Database.getMineralByID(id));
     }
+
+    public static void addBook(String name, String bookAuthor, String bookPublisher, String bookInfo, String bookNumberCopies, String bookAvailableCopies, String bookHistory){
+        Book book = new Book(name, bookAuthor, bookPublisher, bookInfo, Integer.parseInt(bookNumberCopies), Integer.parseInt(bookAvailableCopies), bookHistory);
+        Database.bookList.add(book);
+    }
+    public static void removeBook(int id){
+        Database.bookList.remove(Database.getBookByID(id));
+    }
 	
 	public static void addGeolog(String name,String address,String phone,String email){
         Geologist geolog = new Geologist(name, address, phone, email);

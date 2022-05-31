@@ -14,6 +14,10 @@ public class Book {
 	private int Number_of_available_books;
 	private String History_of_delivery;
 
+	public int getId() {
+		return id_Book;
+	}
+
 	public String get_Name() {
 		return Name;
 	}

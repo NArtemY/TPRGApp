@@ -8,6 +8,7 @@ public class Database {
     public static ArrayList<Expedition> expeditionList = new ArrayList<>();
     public static ArrayList<Geologist> geologList = new ArrayList<>();
 	public static ArrayList<Account> accountList = new ArrayList<>();
+    public static ArrayList<Book> bookList = new ArrayList<>();
     public static boolean isEnable = false;
 	public static boolean stat=false;
 
@@ -15,7 +16,9 @@ public class Database {
 //        productList = new ArrayList<>();
 //        clientList = new ArrayList<>();
 //        orderList = new ArrayList<>();
-		
+        for(int i = 0; i < mineralNum; i++){
+            Database.booksList.add(new Book());
+        }
         for(int i = 0; i < mineralNum; i++){
             Database.mineralList.add(new Mineral());
         }
@@ -41,7 +44,17 @@ public class Database {
 		}
 		isEnable = true;
     }
-	
+
+    public static Book getBookByID(int id){
+        for (Book book : bookList) {
+            int bookId = book.getId();
+            if (id == bookId) {
+                return book;
+            }
+        }
+        return null;
+    }
+
     public static Mineral getMineralByID(int id){
         for (Mineral mineral : mineralList) {
             int mineralId = mineral.getId();

@@ -75,7 +75,7 @@ public class Book {
 		History_of_delivery = randomSymbols();
 	}
 
-	public void set_Other_information(string info) {
+	public void set_Other_information(String info) {
 		this.Other_information = this.Other_information + info;
 	}
 
@@ -87,7 +87,7 @@ public class Book {
 		this.Number_of_available_books = num;
 	}
 
-	public void set_History(string history) {
+	public void set_History(String history) {
 		this.History_of_delivery = this.History_of_delivery + history;
 	}
 

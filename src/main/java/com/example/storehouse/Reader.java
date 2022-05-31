@@ -34,7 +34,6 @@ public class Reader {
 	{
 		Number_of_library_card = ++count;
 		Name = randomSymbols();
-		email=randomSymbols();
 		Contact_information = randomSymbols()+"@mail.ru";
 		History_of_books = randomSymbols();
 	}
@@ -51,15 +50,15 @@ public class Reader {
 		return Contact_information;
 	}
 
-	public void set_Name(string name) {
+	public void set_Name(String name) {
 		this.Name = name;
 	}
 
-	public void set_Contact_information(string contact_information) {
+	public void set_Contact_information(String contact_information) {
 		this.Contact_information = contact_information;
 	}
 
-	public void set_History_of_books(string newBook) {
+	public void set_History_of_books(String newBook) {
 		this.History_of_books = this.History_of_books + newBook;
 	}
 

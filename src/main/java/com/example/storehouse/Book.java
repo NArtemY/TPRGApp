@@ -48,6 +48,7 @@ public class Book {
 		for (History history : historyList) {
 			buffer += history.getHistory();
 		}
+		return buffer;
 	}
 
 	private String randomSymbols()

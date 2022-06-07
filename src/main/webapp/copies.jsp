@@ -30,8 +30,14 @@
             String type = request.getParameter("inputTypeSample");
             String date = request.getParameter("DateSample");
             if(new String("put").equals(type)){
-                Database.bookList.get(1).setStartDate(date, Integer.parseInt(reader));
-                Admin.addHistory(name, reader, date);
+                //Database.bookList.get(1).setStartDate(date, Integer.parseInt(reader));
+                for(int i=0; i<Database.bookList.size(); i++){
+                    if(new String(Database.bookList.get(i).get_Name()).equals(name)){
+                        Database.bookList.get(i).setStartDate(date, Integer.parseInt(reader));
+                        break;
+                    }
+                }
+                //Admin.addHistory(name, reader, date);
             }else{
                 Admin.addHistoryEnd(name, reader, date);
             }

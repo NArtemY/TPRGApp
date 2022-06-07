@@ -30,9 +30,10 @@
             String type = request.getParameter("inputTypeSample");
             String date = request.getParameter("DateSample");
             if(type == "Взял"){
-                enter = true;
+
                 Admin.addHistory(name, reader, date);
             }else{
+                enter = true;
                 Admin.addHistoryEnd(name, reader, date);
             }
         }

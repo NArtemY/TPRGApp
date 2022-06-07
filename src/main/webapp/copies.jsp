@@ -160,7 +160,7 @@
                     <select required name="inputReaderSample" class="input-background">
                         <option value=""></option>
                         <%
-                            for (Book reader : Database.readerList) {
+                            for (Reader reader : Database.readerList) {
                         %>
                         <option value="<%=reader.getId()%>"><%=reader.getId()%></option>
                         <%}%>

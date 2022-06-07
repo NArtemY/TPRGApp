@@ -45,7 +45,6 @@ public class Admin {
                     for(int k=0; k<Database.bookList.get(i).historyList.get(j).size(); k++){
                         if(Database.bookList.get(i).historyList.get(j).get(k).getReader() == Integer.parseInt(reader)){
                             Database.bookList.get(i).historyList.get(j).get(k).setEnd(date);
-                            enter = true;
                             break;
                         }
                     }

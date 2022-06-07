@@ -57,8 +57,8 @@ public class Admin {
         }
     }
 
-	public static void addAccount(String login, String password, Geologist geolog){
-        Account account = new Account(login, password, geolog);
+	public static void addAccount(String login, String password){
+        Account account = new Account(login, password);
         Database.accountList.add(account);
    }
 }

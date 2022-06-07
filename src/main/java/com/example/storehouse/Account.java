@@ -5,13 +5,10 @@ import jakarta.servlet.http.Cookie;
 public class Account {
     private String login;
     private String password;
-    private Geologist geolog;
 
-    public Account(String login, String password, Geologist geolog){
+    public Account(String login, String password){
         this.login = login;
         this.password = password;
-        this.geolog = geolog;
-        Admin.addGeolog(geolog.getName(), geolog.getAddress(), geolog.getPhone(), geolog.getEmail());
     }
 
     public String getLogin() {
@@ -22,7 +19,4 @@ public class Account {
         return password;
     }
 
-    public Geologist getGeolog() {
-        return geolog;
-    }
 }

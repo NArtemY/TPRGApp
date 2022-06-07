@@ -30,10 +30,8 @@
             String type = request.getParameter("inputTypeSample");
             String date = request.getParameter("DateSample");
             if(new String("put").equals(type)){
-
                 Admin.addHistory(name, reader, date);
             }else{
-                enter = true;
                 Admin.addHistoryEnd(name, reader, date);
             }
         }
@@ -133,6 +131,7 @@
                         </thead>
                         <tbody>
                         <%
+                            Database.bookList.get(1).setStartDate("date", 2);
                             for(Book book: Database.bookList) {
                                 int counter = 0;
                                 for (ArrayList<History> history: book.historyList){

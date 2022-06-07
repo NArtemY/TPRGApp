@@ -9,7 +9,6 @@ public class Reader {
 	private String Name;
 	private int Number_of_library_card;
 	private String Contact_information;
-	private String History_of_books;
 
 	private String randomSymbols()
 	{
@@ -22,12 +21,11 @@ public class Reader {
 				.toString();
 	}
 
-	public Reader(String name, String contact_information, String history)
+	public Reader(String name, String contact_information)
 	{
 		this.Number_of_library_card = ++count;
 		this.Name = name;
 		this.Contact_information = contact_information;
-		this.History_of_books = history;
 	}
 
 	public Reader()
@@ -35,15 +33,10 @@ public class Reader {
 		Number_of_library_card = ++count;
 		Name = randomSymbols();
 		Contact_information = randomSymbols()+"@mail.ru";
-		History_of_books = "1984 2022-01-16";
 	}
 
 	public int getId() {
 		return Number_of_library_card;
-	}
-
-	public String get_History() {
-		return History_of_books;
 	}
 
 	public String get_Name() {
@@ -60,10 +53,6 @@ public class Reader {
 
 	public void set_Contact_information(String contact_information) {
 		this.Contact_information = contact_information;
-	}
-
-	public void set_History_of_books(String newBook, String date) {
-		this.History_of_books = this.History_of_books + " " + newBook + " " + date;
 	}
 
 }

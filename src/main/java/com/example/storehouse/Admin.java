@@ -22,8 +22,8 @@ public class Admin {
         Database.bookList.remove(Database.getBookByID(id));
     }
 
-    public static void addReader(String name, String contact_information, String history){
-        Reader reader = new Reader(name, contact_information, history);
+    public static void addReader(String name, String contact_information){
+        Reader reader = new Reader(name, contact_information);
         Database.readerList.add(reader);
     }
     public static void removeReader(int id){

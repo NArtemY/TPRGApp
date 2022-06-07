@@ -26,8 +26,7 @@
         if (request.getParameter("add-button") != null) {
             String name = request.getParameter("readerName");
             String readerEmail = request.getParameter("readerEmail");
-            String readerHistory = request.getParameter("readerHistory");
-            Admin.addReader(name, readerEmail, readerHistory);
+            Admin.addReader(name, readerEmail);
         }
         if (request.getParameter("delete-button") != null) {
             for (int i = Database.readerList.size() - 1; i >= 0; i--) {
@@ -161,7 +160,6 @@
                     Добавление читателя<br>
                     ФИО: <input  class="input-background" name="readerName"><br/>
                     Email: <input  class="input-background" name="readerEmail"><br/>
-                    История выдачи: <input  class="input-background" name="readerHistory"><br/>
                     <input class="input-background" type="submit" name="add-button" value="Добавить">
                 </form>
             </div>

@@ -9,10 +9,6 @@
     if (request.getParameter("register-button") != null) {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        String address = request.getParameter("address");
-        String phone = request.getParameter("phone");
-        String email = request.getParameter("email");
         for (Account account: Database.accountList){
             if (account.getLogin().equals(login)) {
                 registerMessage = "Аккаунт с таким логином уже существует";
@@ -21,8 +17,7 @@
             }
         }
         if (!isDouble){
-            Geologist geolog = new Geologist(name, address, phone, email);
-            Admin.addAccount(login, password, geolog);
+            Admin.addAccount(login, password);
             response.sendRedirect("authorization.jsp");
         }
     }
@@ -76,10 +71,6 @@
             <form action="" method="post">
                 Логин: <input style="width: 192px;" class="input-background" required type="text" name="login"><br>
                 Пароль: <input class="input-background" required type="password" name="password"><br>
-                ФИО: <input style="width: 205px;" class="input-background" required type="text" name="name"><br>
-                Адрес: <input style="width: 185px;" class="input-background" required type="text" name="address"><br>
-                Телефон: <input required id="online_phone" class="input-background" autofocus="autofocus" value="+7(___)___-__-__" type="tel" placeholder="+7(___)___-__-__" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" name="phone"><br/>
-                Email: <input style="width: 192px;" class="input-background" required type="text" name="email"><br>
                 <input style="width: 150px; margin-left: 17%; text-align: center" class="input-background" type="submit" name="register-button" value="Зарегистрироваться">
             </form>
 			<script type="text/javascript">

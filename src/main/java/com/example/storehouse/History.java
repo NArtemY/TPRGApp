@@ -3,37 +3,40 @@ package com.example.storehouse;
 import java.util.Random;
 
 public class History{
-	private String startDate;
-	private String endDate;
-	private String reader;
-	private String history;
-	
-	public History(String startDate,String endDate,String reader){
-		this.startDate = startDate;
-		this.endDate=endDate;
-		this.reader=reader;
-		this.history = this.history + startDate + reader + endDate;
-	}
-	
-	public History(){
-		startDate = "";
-		endDate= "";
-		reader= "";
-		history= "";
+	private int reader;
+	private String start = "";
+	private String end = "";
+
+	private String randomSymbols()
+	{
+		int leftLimit = 97;
+		int rightLimit = 123;
+		Random randStr = new Random();
+		return randStr.ints(leftLimit, rightLimit)
+				.limit(15)
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+				.toString();
 	}
 
-	public void setStartDate(String date, String name){
-		this.startDate = date;
-		this.history = this.history + date + name;
+	public History(int reader, String startDate,String endDate = ""){
+		this.start = startDate;
+		this.end = endDate;
+		this.reader = reader;
 	}
 
-	public void setEndDate(String date, String name){
-		this.endDate = date;
-		this.history = this.history + date + name;
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
+    public String getStart(){
+		return start;
 	}
 
-	public String getHistory(){
-		return history;
+	public String getEnd(){
+		return end;
 	}
 
+	public int getReader(){
+		return reader;
+	}
 }

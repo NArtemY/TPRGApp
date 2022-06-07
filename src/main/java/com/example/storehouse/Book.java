@@ -13,7 +13,7 @@ public class Book {
 	private String Other_information;
 	private int Number_of_copies;
 	private int Number_of_available_books;
-	private ArrayList<History> historyList = new ArrayList<>();
+	private ArrayList<ArrayList<History>> historyList = new ArrayList<ArrayList<History>>();
 
 	public int getId() {
 		return id_Book;
@@ -43,12 +43,8 @@ public class Book {
 		return Number_of_available_books;
 	}
 
-	public String get_History() {
-		String buffer = "";
-		for (History history : historyList) {
-			buffer += history.getHistory();
-		}
-		return buffer;
+	public ArrayList<ArrayList<History>> get_History() {
+		return historyList;
 	}
 
 	private String randomSymbols()
@@ -71,7 +67,7 @@ public class Book {
 		this.Number_of_copies = Number_of_copies;
 		this.Number_of_available_books = Number_of_available_books;
 		for(int i=0; i<Number_of_copies; i++){
-			this.historyList.add(new History());
+			this.historyList.add(new ArrayList<History>());
 		}
 	}
 
@@ -83,19 +79,29 @@ public class Book {
 		Other_information = randomSymbols();
 		Number_of_copies = id_Book / 2 + 1;
 		Number_of_available_books = Number_of_copies % 4;
+		for(int i=0; i<Number_of_copies; i++){
+			this.historyList.add(new ArrayList<History>());
+		}
 	}
 
-	public void setStartDate(String start, String reader){
+	public void setStartDate(String start, int reader){
 		if(Number_of_available_books > 0 ) {
-			this.historyList.get(this.Number_of_available_books - 1).setStartDate(start, reader);
+			this.historyList.get(this.Number_of_available_books - 1).add(new History(reader, start));
 			this.Number_of_available_books = this.Number_of_available_books - 1;
 		}
 	}
 
-	public void setEndDate(String end, String reader){
+	public void setEndDate(String end, int reader){
 		if(Number_of_available_books < Number_of_copies ) {
-			this.historyList.get(this.Number_of_available_books - 1).setEndDate(end, reader);
-			this.Number_of_available_books = this.Number_of_available_books + 1;
+			for (ArrayList<History> buf : historyList) {
+				for (History inbuf : buf) {
+					if(inbuf.getReader == reader){
+						inbuf.setEnd(end);
+						this.Number_of_available_books = this.Number_of_available_books + 1;
+						break;
+					}
+				}
+			}
 		}
 	}
 

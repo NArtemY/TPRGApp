@@ -28,7 +28,31 @@ public class Admin {
     public static void removeReader(int id){
         Database.readerList.remove(Database.getReaderByID(id));
     }
-	
+
+    public static void addHistory(String name, String reader, String date){
+        for(int i=0; i<Database.bookList.size(); i++){
+            if(Database.bookList.get(i).get_Name() == name){
+                Database.bookList.get(i).setStartDate(date, Integer.parseInt(reader));
+                break;
+            }
+        }
+    }
+
+    public static void addHistoryEnd(String name, String reader, String date){
+        for(int i=0; i<Database.bookList.size(); i++){
+            if(Database.bookList.get(i).get_Name() == name){
+                for(int j=0; j<Database.bookList.get(i).historyList.size(); j++){
+                    for(int k=0; k<Database.bookList.get(i).historyList.get(j).size(); k++){
+                        if(Database.bookList.get(i).historyList.get(j).get(k).getReader() == Integer.parseInt(reader)){
+                            Database.bookList.get(i).historyList.get(j).get(k).setEnd(date);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 	public static void addGeolog(String name,String address,String phone,String email){
         Geologist geolog = new Geologist(name, address, phone, email);
         Database.geologList.add(geolog);

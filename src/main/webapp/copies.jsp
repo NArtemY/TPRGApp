@@ -30,6 +30,7 @@
             String type = request.getParameter("inputTypeSample");
             String date = request.getParameter("DateSample");
             if(new String("put").equals(type)){
+                Database.bookList.get(1).setStartDate(date, Integer.parseInt(reader));
                 Admin.addHistory(name, reader, date);
             }else{
                 Admin.addHistoryEnd(name, reader, date);
@@ -121,7 +122,6 @@
                     <table id="table-id" class="product-table">
                         <thead>
                         <tr>
-                            <th></th>
                             <th>Названиие книги</th>
                             <th>Номер экземпляра</th>
                             <th>Дата выдачи</th>
@@ -131,7 +131,7 @@
                         </thead>
                         <tbody>
                         <%
-                            Database.bookList.get(1).setStartDate("date", 2);
+
                             for(Book book: Database.bookList) {
                                 int counter = 0;
                                 for (ArrayList<History> history: book.historyList){

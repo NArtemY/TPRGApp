@@ -112,20 +112,45 @@
                             <th>ID</th>
                             <th>ФИО</th>
                             <th>Email</th>
-                            <th>История</th>
+                            <th>Книга</th>
+                            <th>Дата выдачи</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%
-                            for(Reader reader: Database.readerList) {%>
-                        <tr>
-                            <td><input type="checkbox" name=<%="checkbox"+reader.getId()%> value="<%=reader.getId()%>"></td>
-                            <td><%=reader.getId()%></td>
-                            <td><%=reader.get_Name()%></td>
-                            <td><%=reader.get_Contact_information()%></td>
-                            <td><%=reader.get_History()%></td>
-                        </tr>
-                        <%  }%>
+                            for(Reader reader: Database.readerList) {
+                                boolean haveBook = false;
+                                for(Book book: Database.bookList) {
+                                    for (ArrayList<History> history: book.historyList){
+                                        for (History historyLine: history){
+                                            if(reader.getId() == historyLine.getReader()){
+                                                haveBook = true;
+                        %>
+                                            <tr>
+                                                <td><input type="checkbox" name=<%="checkbox"+reader.getId()%> value="<%=reader.getId()%>"></td>
+                                                <td><%=reader.getId()%></td>
+                                                <td><%=reader.get_Name()%></td>
+                                                <td><%=reader.get_Contact_information()%></td>
+                                                <td><%=book.get_Name()%></td>
+                                                <td><%=historyLine.getStart()%></td>
+                                            </tr>
+                                          <%}
+                                        }
+                                    }
+                                }
+                                if(!haveBook){
+                                    %>
+                                        <tr>
+                                            <td><input type="checkbox" name=<%="checkbox"+reader.getId()%> value="<%=reader.getId()%>"></td>
+                                            <td><%=reader.getId()%></td>
+                                            <td><%=reader.get_Name()%></td>
+                                            <td><%=reader.get_Contact_information()%></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <%
+                                }
+                            }%>
                         </tbody>
                     </table>
                     <input class="input-background" type="submit" name="delete-button" value="Удалить">

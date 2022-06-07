@@ -29,7 +29,7 @@
             String reader = request.getParameter("inputReaderSample");
             String type = request.getParameter("inputTypeSample");
             String date = request.getParameter("DateSample");
-            if(type == "Взял"){
+            if(type == "put"){
 
                 Admin.addHistory(name, reader, date);
             }else{
@@ -176,8 +176,8 @@
                         <%}%>
                     </select><br/>
                     <select required name="inputTypeSample" class="input-background">
-                        <option value="Взял">Взял</option>
-                        <option value="Отдал">Отдал</option>
+                        <option value="put">Взял</option>
+                        <option value="push">Отдал</option>
                     </select><br/>
                     Дата: <input  class="input-background" name="DateSample"><br/>
                     <input class="input-background" type="submit" name="add-button" value="Добавить">

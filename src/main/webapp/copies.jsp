@@ -8,6 +8,7 @@
 <%
     //    String dateTime= LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-dd-MM")).toString();
 //    System.out.println(dateTime);
+    boolean enter = false;
     boolean isLoggedIn = false;
     if (!Database.isEnable)Database.Init(10, 10, 10, 10);
     Cookie[] cookies = request.getCookies();
@@ -29,6 +30,7 @@
             String type = request.getParameter("inputTypeSample");
             String date = request.getParameter("DateSample");
             if(type == "Взял"){
+                enter = true;
                 Admin.addHistory(name, reader, date);
             }else{
                 Admin.addHistoryEnd(name, reader, date);
@@ -101,6 +103,13 @@
     </nav>
 </header>
 <main>
+    <%if(enter){
+    %>
+    <script>
+        alert("!!!");
+    </script>
+    <%
+    }%>
     <div class="main-area" style="padding-left: 10%">
         <div style="margin-bottom: 30px ">
             <h3 >Поиск</h3>

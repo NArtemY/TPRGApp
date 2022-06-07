@@ -13,7 +13,7 @@ public class Book {
 	private String Other_information;
 	private int Number_of_copies;
 	private int Number_of_available_books;
-	private ArrayList<ArrayList<History>> historyList = new ArrayList<ArrayList<History>>();
+	public ArrayList<ArrayList<History>> historyList = new ArrayList<ArrayList<History>>();
 
 	public int getId() {
 		return id_Book;
@@ -95,7 +95,7 @@ public class Book {
 		if(Number_of_available_books < Number_of_copies ) {
 			for (ArrayList<History> buf : historyList) {
 				for (History inbuf : buf) {
-					if(inbuf.getReader == reader){
+					if(inbuf.getReader() == reader){
 						inbuf.setEnd(end);
 						this.Number_of_available_books = this.Number_of_available_books + 1;
 						break;

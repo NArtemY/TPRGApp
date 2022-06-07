@@ -32,29 +32,7 @@
             if(new String("put").equals(type)){
                 Admin.addHistory(name, reader, date);
             }else{
-                //Admin.addHistoryEnd(name, reader, date);
-
-                for(int i=0; i<Database.bookList.size(); i++){
-                    if(new String(Database.bookList.get(i).get_Name()).equals(name)){
-                        for(int j=0; j<Database.bookList.get(i).historyList.size(); j++){
-                            for(int k=0; k<Database.bookList.get(i).historyList.get(j).size(); k++){
-                                if(Database.bookList.get(i).historyList.get(j).get(k).getReader() == Integer.parseInt(reader)){
-                                    Database.bookList.get(i).historyList.get(j).get(k).setEnd(date);
-                                    enter = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (request.getParameter("delete-button") != null) {
-            for (int i = Database.bookList.size() - 1; i >= 0; i--) {
-                if (request.getParameter("checkbox" + Database.bookList.get(i).getId()) != null) {
-                    System.out.println(request.getParameter("checkbox" + Database.bookList.get(i).getId()));
-                    Admin.removeBook(Database.bookList.get(i).getId());
-                }
+                Admin.addHistoryEnd(name, reader, date);
             }
         }
     }
@@ -163,7 +141,6 @@
                             }%>
                         </tbody>
                     </table>
-                    <input class="input-background" type="submit" name="delete-button" value="Удалить">
                 </form>
             </div>
             <div class="add-area">

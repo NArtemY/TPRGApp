@@ -48,7 +48,7 @@
             <li><a href="index.jsp">Главная</a></li>
             <li><a href="books.jsp">Книги</a></li>
             <li><a href="copies.jsp">Экземпляры</a></li>
-            <li><a href="report.jsp">Обращение</a></li>
+<%--            <li><a href="report.jsp">Обращение</a></li>--%>
             <%if (cookie != null && cookie.getValue().equals("admin")){
             %>
             <li><a href="readers.jsp">Читатели</a></li>

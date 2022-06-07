@@ -33,14 +33,14 @@
                 Admin.addHistory(name, reader, date);
             }else{
                 //Admin.addHistoryEnd(name, reader, date);
-                enter = true;
+
                 for(int i=0; i<Database.bookList.size(); i++){
-                    if(Database.bookList.get(i).get_Name() == name){
+                    if(new String(Database.bookList.get(i).get_Name()).equals(name)){
                         for(int j=0; j<Database.bookList.get(i).historyList.size(); j++){
                             for(int k=0; k<Database.bookList.get(i).historyList.get(j).size(); k++){
                                 if(Database.bookList.get(i).historyList.get(j).get(k).getReader() == Integer.parseInt(reader)){
                                     Database.bookList.get(i).historyList.get(j).get(k).setEnd(date);
-
+                                    enter = true;
                                     break;
                                 }
                             }

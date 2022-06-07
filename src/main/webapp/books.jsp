@@ -9,7 +9,7 @@
     //    String dateTime= LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-dd-MM")).toString();
 //    System.out.println(dateTime);
     boolean isLoggedIn = false;
-    if (!Database.isEnable)Database.Init(10, 10, 10, 10);
+    if (!Database.isEnable)Database.Init(10, 10);
     Cookie[] cookies = request.getCookies();
     String cookieName = "status";
     Cookie cookie = null;

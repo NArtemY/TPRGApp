@@ -35,6 +35,16 @@
                 Admin.addHistoryEnd(name, reader, date);
             }
         }
+        if (request.getParameter("add-button1") != null) {
+            String name = request.getParameter("inputBookCopySample");
+            for(int i=0; i<Database.bookList.size(); i++){
+                if(new String(Database.bookList.get(i).get_Name()).equals(name)){
+                    Database.bookList.get(i).set_Number_of_copies(Database.bookList.get(i).get_Number_of_copies() + 1);
+                    Database.bookList.get(i).set_Number_of_available_books(Database.bookList.get(i).get_Number_of_available_books() + 1);
+                    Database.bookList.get(i).historyList.add(new ArrayList<History>());
+                }
+            }
+        }
     }
 %>
 <!DOCTYPE html>
@@ -170,6 +180,18 @@
                     </select><br/>
                     Дата: <input  class="input-background" name="DateSample"><br/>
                     <input class="input-background" type="submit" name="add-button" value="Добавить">
+                    <br>
+                    Добавление экземпляра<br>
+                    Название книги:
+                    <select required name="inputBookCopySample" class="input-background">
+                        <option value=""></option>
+                        <%
+                            for (Book book : Database.bookList) {
+                        %>
+                        <option value="<%=book.get_Name()%>"><%=book.get_Name()%></option>
+                        <%}%>
+                    </select><br/>
+                    <input class="input-background" type="submit" name="add-button1" value="Добавить">
                 </form>
             </div>
         </div>

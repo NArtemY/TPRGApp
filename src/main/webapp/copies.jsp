@@ -32,7 +32,20 @@
             if(new String("put").equals(type)){
                 Admin.addHistory(name, reader, date);
             }else{
-                Admin.addHistoryEnd(name, reader, date);
+                //Admin.addHistoryEnd(name, reader, date);
+                for(int i=0; i<Database.bookList.size(); i++){
+                    if(Database.bookList.get(i).get_Name() == name){
+                        for(int j=0; j<Database.bookList.get(i).historyList.size(); j++){
+                            for(int k=0; k<Database.bookList.get(i).historyList.get(j).size(); k++){
+                                if(Database.bookList.get(i).historyList.get(j).get(k).getReader() == Integer.parseInt(reader)){
+                                    Database.bookList.get(i).historyList.get(j).get(k).setEnd(date);
+                                    enter = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         if (request.getParameter("delete-button") != null) {

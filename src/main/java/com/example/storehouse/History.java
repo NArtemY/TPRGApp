@@ -18,10 +18,16 @@ public class History{
 				.toString();
 	}
 
-	public History(int reader, String startDate,String endDate = ""){
+	public History(int reader, String startDate){
 		this.start = startDate;
 		this.end = endDate;
 		this.reader = reader;
+	}
+
+	public History(){
+		this.start = "";
+		this.end = "";
+		this.reader = "";
 	}
 
     public void setEnd(String end) {

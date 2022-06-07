@@ -29,7 +29,7 @@
             String reader = request.getParameter("inputReaderSample");
             String type = request.getParameter("inputTypeSample");
             String date = request.getParameter("DateSample");
-            if(Objects.equals(type, new String("put"))){
+            if(new String("put").equals(type)){
 
                 Admin.addHistory(name, reader, date);
             }else{

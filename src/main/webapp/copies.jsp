@@ -166,8 +166,8 @@
                         <%}%>
                     </select><br/>
                     <select required name="inputTypeSample" class="input-background">
-                        <option value="Взял"></option>
-                        <option value="Отдал"></option>
+                        <option value="Взял">Взял</option>
+                        <option value="Отдал">Отдал</option>
                     </select><br/>
                     Дата: <input  class="input-background" name="DateSample"><br/>
                     <input class="input-background" type="submit" name="add-button" value="Добавить">

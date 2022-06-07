@@ -37,13 +37,7 @@
         }
         if (request.getParameter("add-button1") != null) {
             String name = request.getParameter("inputBookCopySample");
-            for(int i=0; i<Database.bookList.size(); i++){
-                if(new String(Database.bookList.get(i).get_Name()).equals(name)){
-                    Database.bookList.get(i).set_Number_of_copies(Database.bookList.get(i).get_Number_of_copies() + 1);
-                    Database.bookList.get(i).set_Number_of_available_books(Database.bookList.get(i).get_Number_of_available_books() + 1);
-                    Database.bookList.get(i).historyList.add(new ArrayList<History>());
-                }
-            }
+            Admin.addBookCopy(name);
         }
     }
 %>
@@ -157,7 +151,7 @@
                 <form class="add-form" action="" method="post">
                     Добавление записи<br>
                     Название книги:
-                    <select required name="inputBookSample" class="input-background">
+                    <select name="inputBookSample" class="input-background">
                         <option value=""></option>
                         <%
                             for (Book book : Database.bookList) {
@@ -166,7 +160,7 @@
                         <%}%>
                     </select><br/>
                     Читатель:
-                    <select required name="inputReaderSample" class="input-background">
+                    <select name="inputReaderSample" class="input-background">
                         <option value=""></option>
                         <%
                             for (Reader reader : Database.readerList) {
@@ -174,16 +168,18 @@
                         <option value="<%=reader.getId()%>"><%=reader.getId()%></option>
                         <%}%>
                     </select><br/>
-                    <select required name="inputTypeSample" class="input-background">
+                    <select name="inputTypeSample" class="input-background">
                         <option value="put">Взял</option>
                         <option value="push">Отдал</option>
                     </select><br/>
                     Дата: <input  class="input-background" name="DateSample"><br/>
                     <input class="input-background" type="submit" name="add-button" value="Добавить">
                     <br>
+                    <br>
+                    <br>
                     Добавление экземпляра<br>
                     Название книги:
-                    <select required name="inputBookCopySample" class="input-background">
+                    <select name="inputBookCopySample" class="input-background">
                         <option value=""></option>
                         <%
                             for (Book book : Database.bookList) {

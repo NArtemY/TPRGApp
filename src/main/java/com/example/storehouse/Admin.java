@@ -53,6 +53,16 @@ public class Admin {
         }
     }
 
+    public  static void addBookCopy(String name){
+        for(int i=0; i<Database.bookList.size(); i++){
+            if(new String(Database.bookList.get(i).get_Name()).equals(name)){
+                Database.bookList.get(i).set_Number_of_copies(Database.bookList.get(i).get_Number_of_copies() + 1);
+                Database.bookList.get(i).set_Number_of_available_books(Database.bookList.get(i).get_Number_of_available_books() + 1);
+                Database.bookList.get(i).historyList.add(new ArrayList<History>());
+            }
+        }
+    }
+
 	public static void addGeolog(String name,String address,String phone,String email){
         Geologist geolog = new Geologist(name, address, phone, email);
         Database.geologList.add(geolog);

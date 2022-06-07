@@ -45,7 +45,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Минералы</title>
+    <title>Экземпляры</title>
     <link rel='stylesheet' type='text/css' href='style/styl.css' />
     <script>
         function tableSearch() {
@@ -78,15 +78,15 @@
     <nav>
         <ul class="nav-links">
             <li><a href="index.jsp">Главная</a></li>
-            <li><a href="minerals.jsp">Минералы</a></li>
-            <li><a href="samples.jsp">Образцы</a></li>
-            <li><a href="expeditions.jsp">Экспедиции</a></li>
+            <li><a href="books.jsp">Книги</a></li>
+            <li><a href="copies.jsp">Экземпляры</a></li>
+            <li><a href="report.jsp">Обращение</a></li>
             <%if (cookie != null && cookie.getValue().equals("admin")){
             %>
-            <li><a href="geologs.jsp">Геологи</a></li>
+            <li><a href="readers.jsp">Читатели</a></li>
             <%}%>
             <% if (cookie != null && Database.stat!=false){%>
-            <%="<li style=\"color: aquamarine\">User: "+cookie.getValue()+"</li>"%>
+            <%="<li style=\"color: black\">User: "+cookie.getValue()+"</li>"%>
             <%}%>
             <% if (cookie != null && Database.stat!=false){
             %>

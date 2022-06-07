@@ -31,7 +31,7 @@ public class Admin {
 
     public static void addHistory(String name, String reader, String date){
         for(int i=0; i<Database.bookList.size(); i++){
-            if(Database.bookList.get(i).get_Name() == name){
+            if(new String(Database.bookList.get(i).get_Name()).equals(name)){
                 Database.bookList.get(i).setStartDate(date, Integer.parseInt(reader));
                 break;
             }
